@@ -28,41 +28,51 @@
 
 - Caso queiram testar as Migrations e etc, basta:
 
-```
-1 - Apagar o BD database.sqlite que esta na pasta src/database. 
+
+1 - Apagar o BD `database.sqlite` que esta na pasta `src/database`. 
 
 2 - Ter o sqlite instalado na sua máquina. Caso não tenha utilize o seguinte comando:
 
-sudo apt install sqlite
+`sudo apt install sqlite`
+
+(OPCIONAL) - Não me recordo se é necessário ter o node instalado para que o yarn funcione, mas se caso for necessário segue abaixo o comando para instalar o node no Ubuntu:
+
+`curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -`
+
+`sudo apt-get install -y nodejs`
+
+`node -v`
+`npm -v`
 
 3 - Tendo sqlite instalado agora precisamos instalar o Yarn, seguem os comandos para realizar essa instalação:
 
-sudo apt install curl  (caso ja tenha o curl instalado pule esse passo).
+`sudo apt install curl`  (caso ja tenha o curl instalado pule esse passo).
 
-curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+`curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -`
 
-echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+`echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list`
 
-sudo apt update && sudo apt install --no-install-recommends yarn
+`sudo apt update && sudo apt install --no-install-recommends yarn`
 
 Adicione ao arquivo ~/.bashrc (ou ~/.zshrc caso você utilize o shell zsh) a seguinte linha: 
-
+```
 export PATH="$PATH:`yarn global bin`"
-
-yarn --version     (caso nao mostre a versao tente fechar e abrir o terminal)
+```
+`yarn --version `    (caso nao mostre a versao tente fechar e abrir o terminal)
 
 Caso retorne a versão do Yarn (acima de 1.0, abaixo de 2.0), a instalação ocorreu com sucesso.
 
 4 - Com o yarn já instalado devemos rodar as migrations com o seguinte comando:
 
-yarn typeorm migration:run
+`yarn typeorm migration:run`
 
 5 - Após isso para deixar o processo em execução basta executar o comando abaixo:
 
-yarn dev
+`yarn dev`
 
-6 - Para visualizar o BD e suas tabelas eu utilizo uma extensão para o vscode chamada SQLite. Após ter instalado ela basta ir em View > Command Palette (CTRL+SHIFT+P) e após isso digitar open database e selecionar o BD database.sqlite na pasta src/database, após isso no canto inferior da tela aparecerá o SQLITE EXPLORER, clicando nele o restante é bem intuitivo.
-```
+6 - Para visualizar o BD e suas tabelas eu utilizo uma extensão para o vscode chamada SQLite. Após ter instalado ela basta ir em `View > Command Palette (CTRL+SHIFT+P)` e após isso digitar `open database` e selecionar o BD `database.sqlite` na pasta `src/database`, após isso no canto inferior da tela aparecerá o `SQLITE EXPLORER`, clicando nele o restante é bem intuitivo.
+
+
 ## Instruções Insomnia
 
 
