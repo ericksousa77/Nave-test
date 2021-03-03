@@ -1,0 +1,99 @@
+E.B.1 Crie um script que delete e crie todas as tabelas.
+
+CREATE TABLE navers(id INTEGER, name VARCHAR, job_role VARCHAR, birthdate DATE, admission_date DATE,
+                    created_at TIMESTAMP, updated_at TIMESTAMP,PRIMARY KEY(id ASC));
+                    
+                    
+CREATE TABLE projects(id INTEGER, name VARCHAR, created_at TIMESTAMP, updated_at TIMESTAMP,PRIMARY KEY(id ASC));
+                    
+                    
+CREATE TABLE projects_navers(id INTEGER, project_id INTEGER, naver_id INTEGER,
+                             PRIMARY KEY(id ASC), FOREIGN KEY(project_id) REFERENCES projects(id),
+                             FOREIGN KEY(naver_id) REFERENCES navers(id));
+                             
+
+DROP TABLE navers; 
+DROP TABLE projects; 
+DROP TABLE projects_navers;  
+
+
+------------------------------------------------------------------------------------------------------------------
+
+E.B.2 Faça um script que limpe e crie dados nas tabelas.
+
+CRIA REGISTROS:
+
+
+INSERT INTO navers (id, name, job_role, birthdate, admission_date, created_at, updated_at)
+VALUES (1, 'Paulo', 'desenvolvedor', '1998-01-01', '2020-01-01', '2021-02-02:20:17:00', '2021-02-02:20:17:00');     
+
+INSERT INTO navers (id, name, job_role, birthdate, admission_date, created_at, updated_at)
+VALUES (2, 'Pedro', 'RH', '1997-03-05', '2021-02-02', '2021-02-02:20:21:35', '2021-02-02:20:21:35'); 
+
+INSERT INTO navers (id, name, job_role, birthdate, admission_date, created_at, updated_at)
+VALUES (3, 'Carla', 'desenvolvedor', '1980-03-05', '2000-05-05', '2021-02-02:20:21:35', '2021-02-02:20:21:35'); 
+ 
+
+INSERT INTO projects (id, name, created_at, updated_at)
+VALUES (1, 'Hackaton', '2021-02-02:20:17:00', '2021-02-02:20:17:00');
+
+INSERT INTO projects (id, name, created_at, updated_at)
+VALUES (2, 'Live Code', '2021-02-02:20:35:37', '2021-02-02:20:35:37');
+
+
+APAGA REGISTROS:
+
+DELETE FROM navers;  
+DELETE FROM projects;  
+
+------------------------------------------------------------------------------------------------------------------
+
+E.B.3 Faça uma querie que traga todos os navers ordenados pelo seu tempo de empresa admission_date.
+
+SELECT * FROM navers ORDER BY (admission_date);
+
+
+------------------------------------------------------------------------------------------------------------------
+
+E.B.4 Faça uma querie que traga todos os projetos com seus respectivos navers.
+
+Vinculando Navers a Projects:
+
+INSERT INTO projects_navers (id, project_id, naver_id)
+VALUES (1, 1, 3); 
+
+INSERT INTO projects_navers (id, project_id, naver_id)
+VALUES (2, 2, 1);
+
+INSERT INTO projects_navers (id, project_id, naver_id)
+VALUES (3, 2, 2); 
+
+
+Querie que retorna o projects e seus respectivos navers:
+
+SELECT projects.name as group_name,navers.name as naver_name FROM (projects_navers JOIN navers ON (projects_navers.naver_id = navers.id)) 
+	JOIN projects ON (projects_navers.project_id = projects.id);
+	
+
+------------------------------------------------------------------------------------------------------------------
+
+E.B.5 Faça uma querie que traga todos os projetos com sua quantidade de navers.
+
+SELECT projects.name as project_name, COUNT(*) AS qtd_participantes FROM (projects_navers JOIN navers ON (projects_navers.naver_id = navers.id)) JOIN projects ON (projects_navers.project_id = projects.id) GROUP BY (projects.name);
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+               
