@@ -44,7 +44,8 @@ VALUES (2, 'Live Code', '2021-02-02:20:35:37', '2021-02-02:20:35:37');
 APAGA REGISTROS:
 
 DELETE FROM navers;  
-DELETE FROM projects;  
+DELETE FROM projects;
+DELETE FROM projects_navers;  
 
 ------------------------------------------------------------------------------------------------------------------
 

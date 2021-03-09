@@ -24,9 +24,11 @@
 
 - Utilizei o TypeORM para deixar o código mais limpo e aproveitar todos os métodos que ele nos disponibiliza para fazer as operações no BD.
 
+- Configurei o projeto para rodar na seguinte url: `http://localhost:3333`
+
 ## Instruções para instalar o Node e o Yarn:
 
-### Instalação do node:
+### Instalação do Node:
 - Antes de tudo é necessário ter o node instalado, para isso basta seguir os seguintes passos para instalar o node no Ubuntu:
 
 `sudo apt install curl`  (caso ja tenha o curl instalado pule esse passo).
@@ -87,7 +89,7 @@ Caso retorne a versão do Yarn (acima de 1.0, abaixo de 2.0), a instalação oco
 5 - Para visualizar o BD e suas tabelas eu utilizo uma extensão para o vscode chamada SQLite. Após ter instalado ela basta ir em `View > Command Palette (CTRL+SHIFT+P)` e após isso digitar `open database` e selecionar o BD `database.sqlite` na pasta `src/database`, após isso no canto inferior da tela aparecerá o `SQLITE EXPLORER`, clicando nele o restante é bem intuitivo.
 
 
-## Instruções Insomnia
+## Instruções Insomnia:
 
 
 - Na rota `/showespecifnaver/` após a ultima barra é necessário passar o uuid do naver que você deseja obter informações. Esse uuid pode ser obtido através da rota `/indexnavers `que lista todos os navers cadastrados.
